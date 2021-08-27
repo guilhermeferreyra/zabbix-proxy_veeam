@@ -1,0 +1,14 @@
+version: '3.6'
+
+services:
+  zabbix-proxy:
+    image: zabbix/zabbix-proxy-sqlite3:5.0.14-ubuntu
+    container_name: proxy-infiniit
+    ports:
+      - 0.0.0.0:10051:10051
+    environment:
+      - ZBX_PROXYMODE=0
+      - ZBX_HOSTNAME=proxy-infiniit
+      - ZBX_SERVER_HOST=dashboard.infiniit.com.br
+      - ZBX_SERVER_PORT=10051
+    restart: always
